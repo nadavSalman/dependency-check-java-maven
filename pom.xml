@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.ofek.development.processes</groupId>
+  <artifactId>dependency-check-java-maven</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>dependency-check-java-maven</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+
+    
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/net.bull.javamelody/javamelody-core -->
+    <dependency>
+      <groupId>net.bull.javamelody</groupId>
+      <artifactId>javamelody-core</artifactId>
+      <version>1.33.0</version>
+    </dependency>
+
+
+
+
+    <!-- https://mvnrepository.com/artifact/org.clojure/core.cache -->
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>core.cache</artifactId>
+      <version>0.5.0</version>
+    </dependency>
+
+    
+
+  </dependencies>
+
+  <build>
+    <plugins>
+       <!-- declare deoendecy-check plugin , Run : mvn verify  -->
+       <plugin>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+        <version>6.0.2</version>
+        <configuration>
+            <cveUrlModified>file:///home/nadav/dependency-check-db-creation/mirror-data/nvdcve-1.1-modified.json.gz</cveUrlModified>
+            <cveUrlBase>file:///home/nadav/dependency-check-db-creation/mirror-data/nvdcve-1.1-%d.json.gz</cveUrlBase>
+        </configuration>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>check</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+    </plugins>
+  </build>
+
+
+</project>
