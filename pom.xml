@@ -21,6 +21,64 @@
   </properties>
 
   <dependencies>
+
+
+    <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+  <dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.1.3</version>
+  </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>1.4.4</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+  <dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-core</artifactId>
+    <version>1.9.5</version>
+    <scope>test</scope>
+  </dependency>
+
+
+<!--     
+    <dependency>
+      <groupId>net.bull.javamelody</groupId>
+      <artifactId>javamelody-core</artifactId>
+      <version>1.33.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>core.cache</artifactId>
+      <version>0.5.0</version>
+    </dependency>
+
+
+   
+    <dependency>
+      <groupId>org.odpi.egeria</groupId>
+      <artifactId>open-connector-framework</artifactId>
+      <version>0.2</version>
+    </dependency>
+
+  <dependency>
+    <groupId>it.unimi.dsi</groupId>
+    <artifactId>fastutil</artifactId>
+    <version>6.6.5</version>
+  </dependency> -->
+
+
+
+
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -28,49 +86,33 @@
       <scope>test</scope>
     </dependency>
 
-
-    <!-- https://mvnrepository.com/artifact/net.bull.javamelody/javamelody-core -->
-    <dependency>
-      <groupId>net.bull.javamelody</groupId>
-      <artifactId>javamelody-core</artifactId>
-      <version>1.33.0</version>
-    </dependency>
+  </dependencies> 
 
 
-
-
-    <!-- https://mvnrepository.com/artifact/org.clojure/core.cache -->
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>core.cache</artifactId>
-      <version>0.5.0</version>
-    </dependency>
-
-    
-
-  </dependencies>
 
   <build>
     <plugins>
-       <!-- declare deoendecy-check plugin , Run : mvn verify  -->
+      <!-- declare deoendecy-check plugin , Run : mvn verify  -->
        <plugin>
-        <groupId>org.owasp</groupId>
-        <artifactId>dependency-check-maven</artifactId>
-        <version>6.0.2</version>
-        <configuration>
-            <cveUrlModified>file:///home/nadav/dependency-check-db-creation/mirror-data/nvdcve-1.1-modified.json.gz</cveUrlModified>
-            <cveUrlBase>file:///home/nadav/dependency-check-db-creation/mirror-data/nvdcve-1.1-%d.json.gz</cveUrlBase>
-        </configuration>
-        <executions>
-            <execution>
-                <goals>
-                    <goal>check</goal>
-                </goals>
-            </execution>
-        </executions>
-    </plugin>
-    </plugins>
+            <groupId>org.owasp</groupId>
+            <artifactId>dependency-check-maven</artifactId>
+            <version>6.0.2</version>
+            <configuration>
+                <cveUrlModified>file:///home/nadav/dependency-check-db-creation/mirror-data/nvdcve-1.1-modified.json.gz</cveUrlModified>
+                <cveUrlBase>file:///home/nadav/dependency-check-db-creation/mirror-data/nvdcve-1.1-%d.json.gz</cveUrlBase>
+
+                <autoUpdate>false</autoUpdate>
+                <retireJsForceUpdate>false</retireJsForceUpdate>
+
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+   </plugins>
   </build>
-
-
 </project>
